@@ -2,12 +2,14 @@
 """Hypermedia pagination sample.
 """
 import csv
+
 import math
+
 from typing import Dict, List, Tuple
 
 
 def index_range(page: int, page_size: int) -> Tuple[int, int]:
-    """Retrieves the index range from a given page and page size.
+    """Retrieves index range from  given page and page size.
     """
     start = (page - 1) * page_size
     end = start + page_size
@@ -15,12 +17,12 @@ def index_range(page: int, page_size: int) -> Tuple[int, int]:
 
 
 class Server:
-    """Server class to paginate a database of popular baby names.
+    """Server class to paginate  database of popular baby names.
     """
     DATA_FILE = "Popular_Baby_Names.csv"
 
     def __init__(self):
-        """Initializes a new Server instance.
+        """Initializes new Server instance.
         """
         self.__dataset = None
 
@@ -36,7 +38,7 @@ class Server:
         return self.__dataset
 
     def get_page(self, page: int = 1, page_size: int = 10) -> List[List]:
-        """Retrieves a page of data.
+        """Retrieves  page of data.
         """
         assert type(page) == int and type(page_size) == int
         assert page > 0 and page_size > 0
@@ -47,7 +49,7 @@ class Server:
         return data[start:end]
 
     def get_hyper(self, page: int = 1, page_size: int = 10) -> Dict:
-        """Retrieves information about a page.
+        """Retrieves information about  page.
         """
         page_data = self.get_page(page, page_size)
         start, end = index_range(page, page_size)
