@@ -35,7 +35,7 @@ class Server:
             dataset = self.dataset()
             truncated_dataset = dataset[:1000]
             self.__indexed_dataset = {
-                m: dataset[i] for m in range(len(dataset))
+                m: dataset[m] for m in range(len(dataset))
             }
         return self.__indexed_dataset
 
