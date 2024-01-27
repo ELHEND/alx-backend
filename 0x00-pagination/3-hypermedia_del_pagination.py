@@ -1,17 +1,18 @@
 #!/usr/bin/env python3
-"""Deletion-resilient hypermedia pagination
+"""Deletion-resilient  hypermedia pagination
 """
 import csv
+
 from typing import Dict, List
 
 
 class Server:
-    """Server class to paginate a database of popular baby names.
+    """Server class to paginate  database of popular baby names.
     """
     DATA_FILE = "Popular_Baby_Names.csv"
 
     def __init__(self):
-        """Initializes a new Server instance.
+        """Initializes  new Server instance.
         """
         self.__dataset = None
         self.__indexed_dataset = None
@@ -34,12 +35,12 @@ class Server:
             dataset = self.dataset()
             truncated_dataset = dataset[:1000]
             self.__indexed_dataset = {
-                i: dataset[i] for i in range(len(dataset))
+                m: dataset[i] for m in range(len(dataset))
             }
         return self.__indexed_dataset
 
     def get_hyper_index(self, index: int = None, page_size: int = 10) -> Dict:
-        """Retrieves info about a page from a given index and with a
+        """Retrieves info about page from  given index and with a
         specified size.
         """
         data = self.indexed_dataset()
@@ -48,13 +49,13 @@ class Server:
         data_count = 0
         next_index = None
         start = index if index else 0
-        for i, item in data.items():
-            if i >= start and data_count < page_size:
+        for m, item in data.items():
+            if m >= start and data_count < page_size:
                 page_data.append(item)
                 data_count += 1
                 continue
             if data_count == page_size:
-                next_index = i
+                next_index = m
                 break
         page_info = {
             'index': index,
