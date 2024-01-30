@@ -43,7 +43,7 @@ class LFUCache(BaseCaching):
             - Args:
                 - key to look for
             - Return:
-                - value associated with key
+                - value associated with the key
         """
         cache_item = self.cache_data.get(key)
         counter = self.counter
